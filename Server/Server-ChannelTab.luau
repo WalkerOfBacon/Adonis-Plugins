@@ -24,17 +24,6 @@ return function(Vargs)
 	
 	local TextChannels = TextChatService and TextChatService:FindFirstChild("TextChannels")
 	
-	-- Workaround for tabs not disappearing once removed from it
-	local function refreshChatWindow(plr: Player)
-		Remote.LoadCode(plr, [[
-		local TextChannels = game.TextChatService.TextChannels
-		
-		TextChannels.Parent = nil
-		task.wait()
-		TextChannels.Parent = game.TextChatService
-		]])
-	end
-	
 	local adminChannel = service.New("TextChannel", {
 		Name = "Admins";
 		Parent = TextChannels
